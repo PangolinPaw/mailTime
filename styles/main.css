@@ -1,0 +1,43 @@
+/* COLOUR SCHEME
+
+Desc.		High	Light 	Mid 	Dark
+Red/grey	#f1404b	#f4f5f9	#dddfe6	#252c41
+Blue/grey	#2b90d9	#d9e1e8	#9baec8	#282c37
+
+*/
+
+body {
+	background-color: #dddfe6; /*#9baec8*/
+	font-family: 'Ubuntu', sans-serif;
+}
+
+.container {
+	margin: 0 auto;
+	margin: 1em 10% 1em 10%;
+	background-color: #f4f5f9; /* #d9e1e8 */
+	padding: 0 0.5em 1em 0.5em;
+}
+
+.header {
+	width: 100%;
+	padding: 0 0.5em 0 0.5em;
+	margin: 0 0 0 -0.5em;
+	height: 2em;
+	background-color: #252c41; /* #282c37 */
+	color: #f4f5f9; /* #d9e1e8 */
+	line-height: 2em;
+}
+
+	.header h1 {
+		font-size: 1.5em;
+		padding-left: 0.5em;
+	}
+
+	.header div {
+		margin: -2.9em 0 0 0;
+		height: 1.7em;
+		float: right;
+		background-color: #f1404b; /* #2b90d9 */
+		color: #252c41; /* #282c37 */
+		text-align: right;
+	}
