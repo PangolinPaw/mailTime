@@ -35,7 +35,9 @@
 	// Get completed tasks
 	$past_query = $db->query("SELECT TASK_ID, TASK_NAME, START_DATE, STATUS 
                                 FROM schedule 
-                                WHERE STATUS='COMPLETE'");
+                                WHERE START_DATE<date('now', 'localtime', 'start of day')");
+
+	//strtotime($_POST['start_date']) > strtotime('now')
 
 	// === WRITE TO DATABASE ===
 	if (isset($_POST['task_name'])) {
@@ -178,7 +180,7 @@
 
 	<div class="container">
 		<div class="header">
-			<h1>mailTime</h1>
+			<a href="index.php"><h1>mailTime</h1></a>
 			<a href="help.html"><div>Help</div></a>
 		</div>
 
@@ -231,7 +233,7 @@
 
 						echo '<tr>
 								<td>#' . $task_id . '</td>
-								<td><a href="#">' . $task_name . '</a></td>
+								<td><a href="task.php?id=' . $task_id .'"">' . $task_name . '</a></td>
 								<td>' . $start_date . '</td>
 								<td>' . $status . '</td>
 								<td>' . $last_cust_id . '</td>
@@ -270,7 +272,7 @@
 
 						echo '<tr>
 								<td>#' . $task_id . '</td>
-								<td><a href="#">' . $task_name . '</a></td>
+								<td><a href="task.php?id=' . $task_id .'"">' . $task_name . '</a></td>
 								<td>' . $start_date . '</td>
 								<td>' . $status . '</td>
 								<td>' . $last_cust_id . '</td>
