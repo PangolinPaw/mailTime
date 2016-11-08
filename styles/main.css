@@ -11,11 +11,43 @@ body {
 	font-family: 'Ubuntu', sans-serif;
 }
 
+a {
+	color: #f1404b; /* #2b90d9 */
+}
+
+a:hover {
+	color: #C32B34; /* #257BBA */
+}
+
+pre {
+	margin: 0 1em 0 1em;
+	background-color: #dddfe6; /*#9baec8*/
+}
+
+.dbStatus {
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #FFF;
+	padding: 0.1em 1em 0.1em 1em;
+}
+
 .container {
+	height: 95%;
 	margin: 0 auto;
-	margin: 1em 10% 1em 10%;
+	max-width: 70em;
+	min-width: 30em;
 	background-color: #f4f5f9; /* #d9e1e8 */
 	padding: 0 0.5em 1em 0.5em;
+}
+
+.help_container {
+	margin: 0 auto;
+	max-width: 70em;
+	min-width: 30em;
+	background-color: #f4f5f9; /* #d9e1e8 */
+	padding: 0 0.5em 0 0.5em;
 }
 
 .header {
@@ -34,10 +66,114 @@ body {
 	}
 
 	.header div {
-		margin: -2.9em 0 0 0;
-		height: 1.7em;
+		margin: -2.8em 0 0 0;
+		height: 1.6em;
 		float: right;
 		background-color: #f1404b; /* #2b90d9 */
 		color: #252c41; /* #282c37 */
-		text-align: right;
+		text-align: center;
+		line-height: 1.7em;
+		padding: 0 0.3em 0 0.3em;
+		border-radius: 3px;
 	}
+
+		.header div:hover {
+			cursor: pointer;
+			background-color: #C32B34; /* #257BBA */
+		}
+
+.subsection {
+	margin: 0 auto;
+	background-color: #dddfe6; /*#9baec8*/
+	padding: 0 0 0.5em 0;
+}
+
+	.subsection table {
+		padding: 0.5em 1em 0 1em;
+	}
+	
+.section_heading {
+	padding: 0.1em 0.5em 0.1em 0.5em;
+	background-color: #252c41; /* #282c37 */
+	color: #f4f5f9; /* #d9e1e8 */
+	width: 10em;
+}
+
+.task_list {
+	width: 100%;
+}
+
+	.task_list th {
+		text-align: left;
+		padding: 0 0 0 0.25em;
+		font-weight: normal;
+		background-color: #C5C7CC; /*#EBE9E9*/
+	}
+
+	.task_list td {
+		background-color: #f4f5f9; /* #d9e1e8 */
+		padding: 0 0 0 0.25em;
+	}
+
+
+.submit_button {
+	height: 1.6em;
+	margin: 0.1em 0 0.1em 0;
+	background-color: #f1404b; /* #2b90d9 */
+	color: #252c41; /* #282c37 */
+	text-align: center;
+	line-height: 1.7em;
+	padding: 0 0.3em 0 0.3em;
+	border-radius: 3px;
+}
+
+	.submit_button:hover {
+		cursor: pointer;
+		background-color: #C32B34; /* #257BBA */
+	}
+
+.cancel_button {
+	background-color: #C5C7CC; /*#EBE9E9*/ 
+}
+
+	.cancel_button:hover {
+		cursor: pointer;
+		background-color: #AFB0B4; /*#CCC5C5*/ 
+	}
+
+.overlay_message {
+	position: fixed;
+	top: 10;
+	z-index: 5;
+	padding: 0.5em 1em 0.5em 1em;
+	color: #FFF;
+}
+
+	.good {
+		background-color: #0EBFB4; /* #2b90d9 */
+	}
+
+	.bad {
+		background-color: #f1404b; /* #D46F26 */
+	}
+
+.mask {
+	background-color: rgba(0, 0, 0, 0.75);
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+}
+
+.create_task_popup {
+	background-color: #f4f5f9; /* #d9e1e8 */
+	margin: 0 auto;
+	margin-top: 10%;
+	max-width: 50em;
+	min-width: 25em;
+	padding: 0.5em 0.5em 0.5em 0.5em;
+}
+
+
+	
