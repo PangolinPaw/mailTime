@@ -82,6 +82,11 @@ pre {
 			background-color: #C32B34; /* #257BBA */
 		}
 
+		.header a {
+			color: inherit;
+			text-decoration: none;
+		}
+
 .subsection {
 	margin: 0 auto;
 	background-color: #dddfe6; /*#9baec8*/
@@ -90,6 +95,10 @@ pre {
 
 	.subsection table {
 		padding: 0.5em 1em 0 1em;
+	}
+
+	.subsection p {
+		padding: 0 0 0 0.5em;
 	}
 	
 .section_heading {
@@ -112,7 +121,7 @@ pre {
 
 	.task_list td {
 		background-color: #f4f5f9; /* #d9e1e8 */
-		padding: 0 0 0 0.25em;
+		padding: 0.2em 0 0.2em 0.25em;
 	}
 
 
@@ -143,7 +152,9 @@ pre {
 
 .overlay_message {
 	position: fixed;
-	top: 10;
+	bottom: 0;
+	left: 10;
+	right: 10;
 	z-index: 5;
 	padding: 0.5em 1em 0.5em 1em;
 	color: #FFF;
