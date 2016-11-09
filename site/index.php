@@ -180,9 +180,13 @@
 
 	<div class="container">
 		<div class="header">
-			<a href="index.php"><h1>mailTime</h1></a>
-			<a href="help.html"><div>Help</div></a>
-		</div>
+            <a href="index.php"><h1>mailTime</h1></a>
+            <ul class="nav">
+                <li><a href="index.php">Schedule</a></li>
+                <li><a href="customer.php">Customers</a></li>
+                <li><a href="help.html">Help</a></li>
+            </ul>
+        </div>
 
 		<br />
 
