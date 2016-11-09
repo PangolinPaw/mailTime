@@ -77,7 +77,25 @@ pre {
 		border-radius: 3px;
 	}
 
-		.header div:hover {
+	.nav {
+		margin: -3em 0 0 0;
+		float: right;
+		text-align: center;
+	}
+
+		.nav li {
+			display: inline;
+			list-style-type: none;
+			background-color: #f1404b; /* #2b90d9 */
+			color: #252c41; /* #282c37 */
+			text-align: center;
+			line-height: 1.7em;
+			margin: 0 0.2em 0 0.2em;
+			padding: 0.1em 0.3em 0.1em 0.3em;
+			border-radius: 3px;
+		}
+
+		.nav li:hover {
 			cursor: pointer;
 			background-color: #C32B34; /* #257BBA */
 		}
@@ -100,6 +118,12 @@ pre {
 	.subsection p {
 		padding: 0 0 0 0.5em;
 	}
+
+.scroll {
+	/* Scrollable div within a subsection for large sets of data */
+	height: 30em;
+	overflow-y: scroll;
+}
 	
 .section_heading {
 	padding: 0.1em 0.5em 0.1em 0.5em;
@@ -123,6 +147,11 @@ pre {
 		background-color: #f4f5f9; /* #d9e1e8 */
 		padding: 0.2em 0 0.2em 0.25em;
 	}
+
+.opt_out td {
+	/* Greyed-out table row for opted-out customers */
+	color: #dddfe6;
+}
 
 
 .submit_button {
