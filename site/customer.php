@@ -66,27 +66,27 @@
                                 </tr>
                                 <tr>
                                     <th>First name</th>
-                                    <td><input type="text" name="" value="' . $firstname . '"></td>
+                                    <td><input type="text" name="new_firstname" value="' . $firstname . '"></td>
                                 </tr>
                                 <tr>
                                     <th>Surname</th>
-                                    <td><input type="text" name="" value="' . $surname . '"></td>
+                                    <td><input type="text" name="new_surname" value="' . $surname . '"></td>
                                 </tr>
                                 <tr>
                                     <th>Email</th>
-                                    <td><input type="text" name="" value="' . $email . '"></td>
+                                    <td><input type="text" name="new_email" value="' . $email . '"></td>
                                 </tr>
                                 <tr>
                                     <th>Field 1</th>
-                                    <td><input type="text" name="" value="' . $data_1 . '"></td>
+                                    <td><input type="text" name="new_data_1" value="' . $data_1 . '"></td>
                                 </tr>
                                 <tr>
                                     <th>Field 2</th>
-                                    <td><input type="text" name="" value="' . $data_2 . '"></td>
+                                    <td><input type="text" name="new_data_2" value="' . $data_2 . '"></td>
                                 </tr>
                                 <tr>
                                     <th>Field 3</th>
-                                    <td><input type="text" name="" value="' . $data_3 . '"></td>
+                                    <td><input type="text" name="new_data_3" value="' . $data_3 . '"></td>
                                 </tr>
                             </table>
                             <br />
@@ -95,6 +95,15 @@
                         </form>
                     </div>
                 </div>';
+    }
+
+    if (isset($_POST['new_firstname'])) {
+
+        // CONTINUE FROM HERE
+        $db->exec('UPDATE customers
+                    SET FIRST_NAME="' . $_POST["new_firstname"] . '"
+                    WHERE CUSTOMER_ID=' . $cust_id);
+
     }
 ?>
 
