@@ -117,6 +117,24 @@
                     OPT_OUT="' . $_POST["new_opt-out"] . '"
                     WHERE CUSTOMER_ID=' . $_POST['cust_id']);
     }
+
+    if (isset($_FILES['csv'])) {
+        $info = pathinfo($_FILES['csv']['name']);
+        $ext = $info['extension']; // get the extension of the file
+        echo "test";
+
+        if ($ext == "csv") {
+            $newname = "latest_customer_upload.".$ext; 
+
+            $target = '../data/uploads/'.$newname;
+            move_uploaded_file( $_FILES['csv']['tmp_name'], $target);
+            echo '<div class="overlay_message bad">Upload Customers:<br />The file "' . $_FILES['csv']['name'] . '" was uploaded successfully. Please allow a few minutes for processing.</div>';
+        } else {
+            echo '<div class="overlay_message bad">Upload Customers:<br />The file "' . $_FILES['csv']['name'] . '" could not be read. Please ensure it is in .csv format.</div>';
+        }
+
+        
+    }
 ?>
 
     <div class="container">
@@ -182,7 +200,7 @@
                         <td>"TRUE" (opted-out) or "FALSE" (not opted-out)</td>
                     </tr>
                 </table>
-                <form id="upload_multiple" action="customer.php?limit=<?php echo $start_from; ?>" method="post">
+                <form id="upload_multiple" action="customer.php?limit=<?php echo $start_from; ?>" method="post" enctype="multipart/form-data">
                     <div class="upload_form">
                         <input type="file" name="csv">
                         <div class="submit_button" style="float:right; width:10em; margin-right: 1em;" onclick="document.getElementById('upload_multiple').submit();">Upload</div>
@@ -246,7 +264,7 @@
                 </div><!--scroll -->
                 <p><?php if ($start_from>0) { echo '<a href="customer.php?limit=' . ($start_from-100) . '">&#8592;</a> ';} ?> <?php echo $start_from + 1; ?> to <?php echo $start_from + 100; ?> <a href="customer.php?limit=<?php echo $start_from + 100; ?>">&#8594;</a>
         </div>
-        
+
         <br />
 
     </div> <!-- container -->
