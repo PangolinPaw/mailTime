@@ -1,7 +1,7 @@
 <html>
 <head>
     <title>mailTime</title>
-
+    <link rel="icon" href="images/calendar.ico" type="image/png" sizes="16x16">
     <link rel="stylesheet" href="styles/main.css">
     <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
 
@@ -132,17 +132,71 @@
         <br />
 
         <div class="subsection">
-            <div class="section_heading">Add Customers</div>
-            
-            <br />
+            <div class="section_heading">Add Customer</div>
+            <form id="create_single" action="customer.php?limit=<?php echo $start_from; ?>" method="post">
+                <table class="task_list">
+                    <tr>
+                        <th>First name</th>
+                        <th>Surname</th>
+                        <th>Email</th>
+                        <th>Field 1</th>
+                        <th>Field 2</th>
+                        <th>Field 3</th>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="create_firstname"></td>
+                        <td><input type="text" name="create_surname"></td>
+                        <td><input type="text" name="create_email"></td>
+                        <td><input type="text" name="create_data_1"></td>
+                        <td><input type="text" name="create_data_2"></td>
+                        <td><input type="text" name="create_data_3"></td>
+                    </tr>
+                </table>
+                <div class="submit_button" style="float:right; width:10em; margin-right: 1em;" onclick="document.getElementById('create_single').submit();">Save</div>
+            </form>
             <br />
         </div>
 
         <br />
 
         <div class="subsection">
+            <div class="section_heading">Upload Customers</div>
+                <p style="margin-bottom: 0;">You may upload customer details in bulk from a comma-separated values file (.csv). This file must contain one customer per row and a row of headings as shown in the table below (the second row of the example table details what type of data each column may contain):</p>
+                <table class="task_list">
+                    <tr>
+                        <th>First name</th>
+                        <th>Surname</th>
+                        <th>Email</th>
+                        <th>Field 1</th>
+                        <th>Field 2</th>
+                        <th>Field 3</th>
+                        <th>Opt-out status</th>
+                    </tr>
+                    <tr>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>"TRUE" (opted-out) or "FALSE" (not opted-out)</td>
+                    </tr>
+                </table>
+                <form id="upload_multiple" action="customer.php?limit=<?php echo $start_from; ?>" method="post">
+                    <div class="upload_form">
+                        <input type="file" name="csv">
+                        <div class="submit_button" style="float:right; width:10em; margin-right: 1em;" onclick="document.getElementById('upload_multiple').submit();">Upload</div>
+                    </div>
+                </form>
+                <br />
+                <br />
+        </div>
+
+        <br />
+
+        <div class="subsection">
             <div class="section_heading">Edit Customers</div>
-            <div class="scroll">
+            <div class="scroll" style="height: 15em;">
                 <table class="task_list">
                         <tr>
                             <th></th>
@@ -189,12 +243,10 @@
                             }
                         ?>
                 </table>
-                <br />
                 </div><!--scroll -->
                 <p><?php if ($start_from>0) { echo '<a href="customer.php?limit=' . ($start_from-100) . '">&#8592;</a> ';} ?> <?php echo $start_from + 1; ?> to <?php echo $start_from + 100; ?> <a href="customer.php?limit=<?php echo $start_from + 100; ?>">&#8594;</a>
-            <br />
         </div>
-
+        
         <br />
 
     </div> <!-- container -->
