@@ -121,14 +121,14 @@
     if (isset($_FILES['csv'])) {
         $info = pathinfo($_FILES['csv']['name']);
         $ext = $info['extension']; // get the extension of the file
-        echo "test";
 
         if ($ext == "csv") {
             $newname = "latest_customer_upload.".$ext; 
 
             $target = '../data/uploads/'.$newname;
             move_uploaded_file( $_FILES['csv']['tmp_name'], $target);
-            echo '<div class="overlay_message bad">Upload Customers:<br />The file "' . $_FILES['csv']['name'] . '" was uploaded successfully. Please allow a few minutes for processing.</div>';
+            $process_output = system('../data/uploads/loadCsv.exe', $retval);
+            echo '<div class="overlay_message good">Upload Customers:<br />The file "' . $_FILES['csv']['name'] . '" was uploaded successfully: ' . $process_output . '</div>';
         } else {
             echo '<div class="overlay_message bad">Upload Customers:<br />The file "' . $_FILES['csv']['name'] . '" could not be read. Please ensure it is in .csv format.</div>';
         }
@@ -150,34 +150,6 @@
         <br />
 
         <div class="subsection">
-            <div class="section_heading">Add Customer</div>
-            <form id="create_single" action="customer.php?limit=<?php echo $start_from; ?>" method="post">
-                <table class="task_list">
-                    <tr>
-                        <th>First name</th>
-                        <th>Surname</th>
-                        <th>Email</th>
-                        <th>Field 1</th>
-                        <th>Field 2</th>
-                        <th>Field 3</th>
-                    </tr>
-                    <tr>
-                        <td><input type="text" name="create_firstname"></td>
-                        <td><input type="text" name="create_surname"></td>
-                        <td><input type="text" name="create_email"></td>
-                        <td><input type="text" name="create_data_1"></td>
-                        <td><input type="text" name="create_data_2"></td>
-                        <td><input type="text" name="create_data_3"></td>
-                    </tr>
-                </table>
-                <div class="submit_button" style="float:right; width:10em; margin-right: 1em;" onclick="document.getElementById('create_single').submit();">Save</div>
-            </form>
-            <br />
-        </div>
-
-        <br />
-
-        <div class="subsection">
             <div class="section_heading">Upload Customers</div>
                 <p style="margin-bottom: 0;">You may upload customer details in bulk from a comma-separated values file (.csv). This file must contain one customer per row and a row of headings as shown in the table below (the second row of the example table details what type of data each column may contain):</p>
                 <table class="task_list">
@@ -188,7 +160,7 @@
                         <th>Field 1</th>
                         <th>Field 2</th>
                         <th>Field 3</th>
-                        <th>Opt-out status</th>
+                        <th>Opted out</th>
                     </tr>
                     <tr>
                         <td>Text</td>
@@ -214,7 +186,7 @@
 
         <div class="subsection">
             <div class="section_heading">Edit Customers</div>
-            <div class="scroll" style="height: 15em;">
+            <div class="scroll" style="height: 20em;">
                 <table class="task_list">
                         <tr>
                             <th></th>
