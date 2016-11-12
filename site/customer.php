@@ -45,7 +45,7 @@
 
         $single_cust_data = $single_cust_query->fetchArray();
 
-        $cust_id = $single_cust_data[0];
+        $cust_id = intval($single_cust_data[0]);
         $email = $single_cust_data[1];
         $firstname = $single_cust_data[2];
         $surname = $single_cust_data[3];
@@ -53,6 +53,14 @@
         $data_2 = $single_cust_data[6];
         $data_3 = $single_cust_data[8];
         $opt_out = $single_cust_data[10];
+
+        if ($opt_out == "TRUE") {
+            $radio_yes = "checked";
+            $radio_no = "";
+        } else {
+            $radio_no = "checked";
+            $radio_yes = "";
+        }
 
         echo '  <div id="mask" class="mask">
                     <div class="create_task_popup">
@@ -88,8 +96,13 @@
                                     <th>Field 3</th>
                                     <td><input type="text" name="new_data_3" value="' . $data_3 . '"></td>
                                 </tr>
+                                <tr>
+                                    <th style="background-color: #F0777F;">Opted out</th>
+                                    <td><input type="radio" name="new_opt-out" value="TRUE" ' . $radio_yes . '>Yes<input type="radio" name="new_opt-out" value="FALSE" ' . $radio_no . '>No</td>
+                                </tr>
                             </table>
                             <br />
+                            <input type="hidden" name="cust_id" value=" ' . $cust_id . '">
                             <div class="submit_button" onclick="document.getElementById(\'save_cust_details\').submit();">Save Changes</div>
                             <a href="customer.php" style="text-decoration: none;"><div class="submit_button cancel_button">Cancel</div></a>
                         </form>
@@ -98,12 +111,11 @@
     }
 
     if (isset($_POST['new_firstname'])) {
-
-        // CONTINUE FROM HERE
         $db->exec('UPDATE customers
-                    SET FIRST_NAME="' . $_POST["new_firstname"] . '"
-                    WHERE CUSTOMER_ID=' . $cust_id);
-
+                    SET FIRST_NAME="' . $_POST["new_firstname"] . '", LAST_NAME="' . $_POST["new_surname"] . '", EMAIL="' . $_POST["new_email"] . '",
+                    DATA_FIELD_1="' . $_POST["new_data_1"] . '", DATA_FIELD_2="' . $_POST["new_data_2"] . '", DATA_FIELD_3="' . $_POST["new_data_3"] . '",
+                    OPT_OUT="' . $_POST["new_opt-out"] . '"
+                    WHERE CUSTOMER_ID=' . $_POST['cust_id']);
     }
 ?>
 
