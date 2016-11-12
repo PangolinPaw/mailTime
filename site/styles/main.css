@@ -132,6 +132,13 @@ pre {
 	width: 10em;
 }
 
+.upload_form {
+	float: right;
+	margin: 0.5em 1em 0.5em 0;
+	padding: 0.25em 0.25em 0.25em 1em;
+	background-color: #C5C7CC; /*#EBE9E9*/
+}
+
 .task_list {
 	width: 100%;
 }
