@@ -1,7 +1,7 @@
 <html>
 <head>
 	<title>mailTime</title>
-
+	<link rel="icon" href="images/calendar.ico" type="image/png" sizes="16x16">
 	<link rel="stylesheet" href="styles/main.css">
 	<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
 
@@ -65,6 +65,8 @@
 							(TASK_ID, STATUS, START_DATE) 
 							VALUES (' . $task_id . ', "NEW", "' . $start_date . '")');
 
+				mkdir("../emails/" . $task_id);
+
 				// Display new task creation dialogue
 				echo '	<div class="mask">
 							<div class="create_task_popup">
@@ -85,7 +87,7 @@
 									</tr>
 								</table>
 								<p>
-									The folder "emails/' . $task_id . '" has been created for this task.
+									The folder "../emails/' . $task_id . '" has been created for this task.
 									<br />
 									Save your HTML email in this folder and specify the <a href="help.html#placeholder_strings" target="_blank">placeholder strings</a> below (leave any that are not needed blank):
 								</p>
