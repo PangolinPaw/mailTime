@@ -127,7 +127,7 @@
 
             $target = '../data/uploads/'.$newname;
             move_uploaded_file( $_FILES['csv']['tmp_name'], $target);
-            $process_output = system('../data/uploads/loadCsv.exe', $retval);
+            $process_output = system('"../data/uploads/loadCsv.exe"', $retval);
             echo '<div class="overlay_message good">Upload Customers:<br />The file "' . $_FILES['csv']['name'] . '" was uploaded successfully: ' . $process_output . '</div>';
         } else {
             echo '<div class="overlay_message bad">Upload Customers:<br />The file "' . $_FILES['csv']['name'] . '" could not be read. Please ensure it is in .csv format.</div>';
