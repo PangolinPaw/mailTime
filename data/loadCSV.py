@@ -4,9 +4,14 @@ import csv          # Read CSV
 import sqlite3      # Write to database
 import re           # Validate email address
 
-CSV_FILE = "{}\\latest_customer_upload.csv".format(os.path.abspath(os.path.join(os.path.dirname(__file__))))
 
-dbFile = "{}\\mailTime_data.db".format(os.path.abspath(os.pardir))  # Main database
+DATA_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__))).split("\\")
+del DATA_DIR[-1]
+DATA_DIR = "\\".join(DATA_DIR)
+
+CSV_FILE = "{}\\uploads\\latest_customer_upload.csv".format(DATA_DIR)
+
+dbFile = "{}\\mailTime_data.db".format(DATA_DIR)  # Main database
 db = ""
 c = ""
 
