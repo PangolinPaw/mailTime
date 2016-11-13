@@ -9,9 +9,9 @@ DATA_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__))).split("\\")
 del DATA_DIR[-1]
 DATA_DIR = "\\".join(DATA_DIR)
 
-CSV_FILE = "{}\\uploads\\latest_customer_upload.csv".format(DATA_DIR)
+CSV_FILE = "{}\\data\\uploads\\latest_customer_upload.csv".format(DATA_DIR)
 
-dbFile = "{}\\mailTime_data.db".format(DATA_DIR)  # Main database
+dbFile = "{}\\data\\mailTime_data.db".format(DATA_DIR)  # Main database
 db = ""
 c = ""
 
